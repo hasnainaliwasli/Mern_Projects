@@ -1,0 +1,23 @@
+const express = require("express")
+const mongoose = require("mongoose")
+const connectDB = require("./config/db")
+const cors = require("cors")
+require("dotenv").config()
+
+const app = express()
+ app.use(cors())
+ app.use(express.json())
+
+ app.get("/",(req, res)=>{
+  res.send("This is first api")
+ })
+
+ try {
+  connectDB()
+  app.listen(3000,()=>{
+    console.log("Server is running on localhost 3000")
+  })
+ } catch (error) {
+  console.log("Server error",error.message)
+ }
+
