@@ -1,6 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const connectDB = require("./config/db")
+const userRoutes = require("./routes/userRoutes.js")
 const cors = require("cors")
 require("dotenv").config()
 
@@ -21,3 +22,4 @@ const app = express()
   console.log("Server error",error.message)
  }
 
+app.use("/api/users",  userRoutes)

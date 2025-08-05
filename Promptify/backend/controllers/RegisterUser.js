@@ -1,8 +1,8 @@
-const User = required('../models/User.js')
-const jwt = required("jsonwebtoken")
-const bcrypt = required("bcryptjs")
+const User = require('../models/User.js')
+const jwt = require("jsonwebtoken")
+const bcrypt = require("bcryptjs")
 
-exports.registerUser = async(req,res)=>{
+const RegisterUser = async(req,res)=>{
 const {name,password,email} = req.body;
 
 try {
@@ -24,3 +24,5 @@ try {
   res.status(500).json({msg:"Server error"})
 }
 }
+
+module.exports = {RegisterUser}

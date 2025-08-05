@@ -1,8 +1,9 @@
-const User = required("../models/User.js")
+const User = require("../models/User.js")
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
-
-exports.loginUser = async(req,res)=>{
-  const {email,password} = req.body()
+const LoginUser = async(req,res)=>{
+  const {email,password} = req.body;
 
   try {
     const user = await User.findOne({email})
@@ -21,3 +22,5 @@ exports.loginUser = async(req,res)=>{
   }
 
 }
+
+module.exports = {LoginUser}
