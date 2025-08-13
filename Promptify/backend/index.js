@@ -6,20 +6,20 @@ const cors = require("cors")
 require("dotenv").config()
 
 const app = express()
- app.use(cors())
- app.use(express.json())
+app.use(cors())
+app.use(express.json())
 
- app.get("/",(req, res)=>{
+app.get("/", (req, res) => {
   res.send("This is first api")
- })
+})
 
- try {
+try {
   connectDB()
-  app.listen(3000,()=>{
-    console.log("Server is running on localhost 3000")
+  app.listen(5000, () => {
+    console.log("Server is running on localhost 5000")
   })
- } catch (error) {
-  console.log("Server error",error.message)
- }
+} catch (error) {
+  console.log("Server error", error.message)
+}
 
-app.use("/api/users",  userRoutes)
+app.use("/api/users", userRoutes)
