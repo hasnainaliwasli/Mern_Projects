@@ -16,7 +16,7 @@ exports.createCategory = async (req, res) => {
 
 exports.getUserCategory = async (req, res) => {
   try {
-    const categories = await category.find({ userId: req.user.id })
+    const categories = await Category.find({ userId: req.user.id })
     res.json(categories)
   } catch (err) {
     res.status(500).json({ msg: "Server error" })

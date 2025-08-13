@@ -20,12 +20,15 @@ exports.createPrompt = async (req, res) => {
 
 exports.getPromptByCategory = async (req, res) => {
   try {
-    const prompts = Prompt.find({
-      userId,
-      categoryId,
-    })
+    const userId = "689cc5f965f733c23bb5ef26" //req.user.id; // if using auth middleware
+    const categoryId = req.params.categoryId; // from route param
+    const prompts = await Prompt.find(
+      { 
+        userId, 
+        categoryId,
+      });
     res.json(prompts)
   } catch (err) {
-    res.status(201).json({ msg: "Server error" })
+    res.status(201).json({ msg: err.message })
   }
 }
