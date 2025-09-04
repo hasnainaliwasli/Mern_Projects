@@ -23,7 +23,7 @@ export default function CheckAuth({ isAuthenticated, user, children }) {
   // Not admin but access dashboard
 
 if(isAuthenticated && user?.role !== 'admin' && location.pathname.includes('/admin')){
-  return <Navigate to="unauthorize"/>
+  return <Navigate to="/unauthorize"/>
 }
 
   // Authenticated but as a Admin

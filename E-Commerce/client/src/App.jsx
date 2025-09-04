@@ -14,13 +14,14 @@ import ShopingListing from './pages/shopping-view/listing';
 import ShopingCheckout from './pages/shopping-view/checkout';
 import ShopingAccount from './pages/shopping-view/account';
 import CheckAuth from './components/common/check-auth';
+import Unauthorized from './pages/unauthorized';
 
 function App() {
 
   const isAuthenticated = true;
   const user = {
-    name:"hasnain",
-    role:"user"
+    name: "hasnain",
+    role: "user"
   };
 
   return (
@@ -62,6 +63,7 @@ function App() {
 
         {/* Not Found Page */}
         <Route path='*' element={<NotFound />} />
+        <Route path='/unauthorize' element={<Unauthorized />} />
       </Routes>
     </div>
   );
