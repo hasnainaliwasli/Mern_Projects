@@ -35,10 +35,10 @@ export default function CommonForm({ formControls, formData, setFormData, onSubm
 
       case AllTypes.SELECT:
         element = <Select value={value}
-        onValueChange= {(value)=>setFormData({
-          ...formData,
-          [getControllItem.name]: value
-        })}
+          onValueChange={(value) => setFormData({
+            ...formData,
+            [getControllItem.name]: value
+          })}
         >
           <SelectTrigger className="w-full">
             <SelectValue placeholder={getControllItem.placeholder}>
@@ -88,9 +88,7 @@ export default function CommonForm({ formControls, formData, setFormData, onSubm
           formControls.map((controlItem) => <div className='grid w-full gap-1.5' key={controlItem.name}>
             <Label className="mb-1">{controlItem.label}</Label>
             {
-              {
-                renderInputsByComponentType(controlItem)
-              }
+              renderInputsByComponentType(controlItem)
             }
           </div>)
         }

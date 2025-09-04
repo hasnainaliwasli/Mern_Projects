@@ -18,7 +18,7 @@ import Unauthorized from './pages/unauthorized';
 
 function App() {
 
-  const isAuthenticated = true;
+  const isAuthenticated = false;
   const user = {
     name: "hasnain",
     role: "user"
